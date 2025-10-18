@@ -176,9 +176,64 @@ const park = {
   weatherInfo:
     "Yellowstone's weather can vary quite a bit, even in a single day. In the summer, daytime highs can exceed 70°F (21°C), only to drop 20 or more degrees when a thunderstorm rolls through. It can snow during any month of the year, and winter lows frequently drop below 0°F (-18°C), especially at night. Bring a range of clothing options, including a warm jacket and rain gear, even in the summer.",
   name: "Yellowstone",
-  designation: "National Park"
+  designation: "National Park",
+  activities: [
+    { name: "Astronomy" },
+    { name: "Arts and Culture" },
+    { name: "Auto and ATV" },
+    { name: "Backcountry Camping" },
+    { name: "Biking" },
+    { name: "Birdwatching" },
+    { name: "Boating" },
+    { name: "Camping" },
+    { name: "Canoeing" },
+    { name: "Cross-Country Skiing" },
+    { name: "Fishing" },
+    { name: "Hiking" },
+    { name: "Horseback Riding" },
+    { name: "Kayaking" },
+    { name: "Museum Exhibits" },
+    { name: "Paddling" },
+    { name: "Scenic Driving" },
+    { name: "Skiing" },
+    { name: "Snowmobiling" },
+    { name: "Snowshoeing" },
+    { name: "Wildlife Watching" }
+  ]
 };
+
+const baseUrl = "https://developer.nps.gov/api/v1";
+const apiKey = "YOUR_API_KEY_HERE"; // Replace with your actual API key
+
+// Helper function to fetch JSON data
+async function getJson(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+}
 
 export function getParkData() {
   return park;
+}
+
+// Fetch alerts for a specific park
+export async function getAlerts(parkCode) {
+  const url = `${baseUrl}/alerts?parkCode=${parkCode}&api_key=${apiKey}`;
+  const data = await getJson(url);
+  return data.data;
+}
+
+// Fetch visitor centers for a specific park
+export async function getVisitorCenterData(parkCode) {
+  const url = `${baseUrl}/visitorcenters?parkCode=${parkCode}&api_key=${apiKey}`;
+  const data = await getJson(url);
+  return data.data;
 }
