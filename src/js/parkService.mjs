@@ -203,9 +203,8 @@ const park = {
 };
 
 const baseUrl = "https://developer.nps.gov/api/v1";
-const apiKey = "YOUR_API_KEY_HERE"; // Replace with your actual API key
+const apiKey = "YOUR_API_KEY_HERE";
 
-// Helper function to fetch JSON data
 async function getJson(url) {
   try {
     const response = await fetch(url);
@@ -224,14 +223,12 @@ export function getParkData() {
   return park;
 }
 
-// Fetch alerts for a specific park
 export async function getAlerts(parkCode) {
   const url = `${baseUrl}/alerts?parkCode=${parkCode}&api_key=${apiKey}`;
   const data = await getJson(url);
   return data.data;
 }
 
-// Fetch visitor centers for a specific park
 export async function getVisitorCenterData(parkCode) {
   const url = `${baseUrl}/visitorcenters?parkCode=${parkCode}&api_key=${apiKey}`;
   const data = await getJson(url);

@@ -8,13 +8,13 @@
     <script type="module" src="js/main.js"></script>
   </head>
   <body>
-    <!-- Disclaimer -->
+    
     <p class="disclaimer">
       This is not a real NPS website. If you landed here by accident, visit
       <a href="https://www.nps.gov/yell/index.htm">Yellowstone</a>
     </p>
 
-    <!-- Skip links for accessibility -->
+    
     <div class="skip-links" aria-label="short-cut links" role="navigation">
       <ul>
         <li><a href="#global-nav-toggle" aria-label="Skip to global NPS navigation">Skip to global NPS navigation</a></li>
@@ -24,9 +24,9 @@
       </ul>
     </div>
 
-    <!-- Header -->
+    
     <header>
-      <!-- Global Header -->
+      
       <section class="global-header">
         <a href="index.html" class="site-title">
           <span class="logo" role="presentation"></span>
@@ -39,11 +39,19 @@
             </svg>
             <span class="visually-hidden">Search</span>
           </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> Menu
+          <button id="global-nav-toggle" class="global-nav__toggle" aria-expanded="false" aria-label="Open Menu">
+            <span class="global-nav__toggle--open">
+              <svg class="icon">
+                <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+              </svg>
+              <span class="visually-hidden">Open</span> Menu
+            </span>
+            <span class="global-nav__toggle--close">
+              <svg class="icon">
+                <use xlink:href="/images/sprite.symbol.svg#close"></use>
+              </svg>
+              <span class="visually-hidden">Close</span> Menu
+            </span>
           </button>
         </div>
         <nav class="global-nav">
@@ -64,26 +72,24 @@
         </nav>
       </section>
 
-      <!-- Park Header -->
+      
       <section id="park-header">
         <div class="hero-banner">
           <img src="" alt="" />
           <div class="hero-banner__content">
-            <!-- This will be filled dynamically by JS -->
+           
           </div>
         </div>
         <nav class="park-nav">
           <ul>
-            <!-- This will be filled dynamically by JS -->
+            
           </ul>
         </nav>
       </section>
     </header>
 
-    <!-- Main content -->
     <main id="main"></main>
 
-    <!-- Footer -->
     <footer id="park-footer"></footer>
   </body>
 </html>

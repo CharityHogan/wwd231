@@ -4,13 +4,10 @@ import "../css/conditions.css";
 import { alertTemplate, visitorTemplate, activityTemplate } from "./templates.mjs";
 import { getAlerts, getVisitorCenterData, getParkData } from "./parkService.mjs";
 
-
 const parkData = getParkData();
-
 
 `<h1>${parkData.fullName}</h1>`;
 document.getElementById("footer").innerHTML = `<p>&copy; 2025 ${parkData.name} National Park</p>`;
-
 
 async function setAlerts(parkCode) {
     const alertList = document.querySelector(".alerts-list");
@@ -30,7 +27,6 @@ async function setAlerts(parkCode) {
     }
 }
 
-
 async function setVisitorCenters(parkCode) {
     const visitorList = document.querySelector(".visitor-centers");
     
@@ -49,7 +45,6 @@ async function setVisitorCenters(parkCode) {
     }
 }
 
-
 function setActivities(activities) {
     const activitiesList = document.querySelector(".activities-list");
     
@@ -61,12 +56,10 @@ function setActivities(activities) {
     activitiesList.innerHTML = activities.map(activity => activityTemplate(activity)).join("");
 }
 
-
 function init() {
     setAlerts(parkData.parkCode);
     setVisitorCenters(parkData.parkCode);
     setActivities(parkData.activities);
 }
-
 
 init();

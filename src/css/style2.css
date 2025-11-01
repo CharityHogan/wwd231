@@ -80,7 +80,6 @@ footer {
   width: 100%;
 }
 
-/* Responsive plant section */
 .plant-section__content {
   display: flex;
   flex-direction: column;
@@ -94,7 +93,6 @@ footer {
   }
 }
 
-/* form styling */
 .form-container {
   margin-top: 20px;
   padding: 20px;
